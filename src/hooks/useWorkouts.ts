@@ -95,9 +95,16 @@ export function useWorkouts() {
 
     if (completedDates.length === 0) return 0;
 
-    let streak = 0;
     const today = new Date().toISOString().split('T')[0];
-    let checkDate = today;
+    const yesterday = (() => {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.toISOString().split('T')[0];
+    })();
+
+    // Start streak from today if trained today, otherwise allow streak from yesterday
+    let checkDate = completedDates[0] === today ? today : yesterday;
+    let streak = 0;
 
     for (const date of completedDates) {
       if (date === checkDate) {

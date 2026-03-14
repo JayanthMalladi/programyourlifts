@@ -141,7 +141,7 @@ export default function Home() {
                 onChange={e => setExperienceLevel(e.target.value as UserProfile['experienceLevel'])}
                 className="w-full bg-slate-700 border border-slate-600 rounded-lg px-3 py-2.5 text-white focus:border-indigo-500 focus:outline-none"
               >
-                <option value="beginner">Beginner (&lt;1 year)</option>
+                <option value="beginner">Beginner {'(<'}1 year)</option>
                 <option value="intermediate">Intermediate (1-3 years)</option>
                 <option value="advanced">Advanced (3+ years)</option>
               </select>
